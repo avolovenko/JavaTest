@@ -4,19 +4,22 @@ public class JavaProg {
 
   public static void main(String[] args) {
 
-    int x1 = 1;
-    int y1 = 2;
-    int x2 = 3;
-    int y2 = 4;
+   Point p1 = new Point();
+   p1.x = 1;
+   p1.y = 2;
 
-    String p1 = "(" + x1 + "," + y1 + ")";
-    String p2 = "(" + x2 + "," + y2 + ")";
-    System.out.println("Расстояние между точками " + p1 + " и " + p2 + " = " + distance(x1, x2, y1, y2));
+   Point p2 = new Point();
+   p2.x = 3;
+   p2.y = 4;
+
+   String s1 = "(" + p1.x + "," + p1.y + ")";
+   String s2 = "(" + p2.x + "," + p2.y + ")";
+   System.out.println("Расстояние между точками " + s1 + " и " + s2 + " = " + distance(p1, p2));
 
   }
 
-  public static double distance(int x1, int x2, int y1, int y2) {
-    double d = Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
+  public static double distance(Point p1, Point p2) {
+    double d = Math.sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y));
     return d;
   }
 }
