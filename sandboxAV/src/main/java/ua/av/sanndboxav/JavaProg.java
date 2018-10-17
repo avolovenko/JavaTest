@@ -4,7 +4,7 @@ public class JavaProg {
 
   public static void main(String[] args) {
 
-   Point p1 = new Point(1,2);
+   Point p1 = new Point(0,0);
 
    String s1 = "(" + p1.x1 + "," + p1.y1 + ")";
 
