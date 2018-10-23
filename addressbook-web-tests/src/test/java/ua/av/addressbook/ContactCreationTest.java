@@ -2,6 +2,7 @@ package ua.av.addressbook;
 
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.*;
 import org.openqa.selenium.*;
 
@@ -19,7 +20,7 @@ public class ContactCreationTest {
   public void testContactCreation() throws Exception {
 
     initNewContact();
-    fillNewContactData("FirstName1", "LastName1", "Address street1, 5/1, City1, PostCode", "697975433", "email1@gmail.com", "13", "DECEMBER", "12", "1999");
+    fillNewContactData(new ContactData("FirstName", "LastName", "Address street, 5/1, City, PostCode", "697975432", "email@gmail.com", "12", "DECEMBER", "2000"));
     submitNewContact();
   }
 
@@ -67,7 +68,7 @@ public class ContactCreationTest {
 
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
-    logout( );
+    logout();
     wd.quit();
     }
 
@@ -75,7 +76,7 @@ public class ContactCreationTest {
     wd.findElement( By.linkText( "LOGOUT" ) ).click( );
   }
 
-}
+
 
   private boolean isElementPresent(By by) {
     try {
