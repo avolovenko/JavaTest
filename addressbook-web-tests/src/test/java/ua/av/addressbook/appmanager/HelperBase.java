@@ -1,9 +1,6 @@
 package ua.av.addressbook.appmanager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 public class HelperBase {
@@ -28,6 +25,22 @@ public class HelperBase {
     new Select( wd.findElement(locator)).selectByVisibleText( text );
     wd.findElement(locator).click();
   }
+
+  public String closeAlertAndGetItsText(boolean acceptNextAlert) {
+    try {
+      Alert alert = wd.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+
 
   private boolean isAlertPresent() {
     try {

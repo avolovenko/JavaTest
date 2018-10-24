@@ -2,8 +2,9 @@ package ua.av.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import ua.av.addressbook.model.ContactData;
+
+import static org.testng.Assert.assertTrue;
 
 public class ContactHelper extends HelperBase {
 
@@ -29,4 +30,25 @@ public class ContactHelper extends HelperBase {
   public void initNewContact() {
     click( By.linkText("ADD_NEW"));
   }
+
+  public void editContact() {
+    click( By.xpath("(//img[@alt='EDIT'])[1]") );
+  }
+
+  public void submitContactModification() {
+    click( By.xpath("(//input[@name='update'])[1]") );
+  }
+
+  public void selectContact() {
+    click( By.id("9") );
+  }
+
+  public void deleteContact() {
+    click( By.xpath( "//input[@value='DELETE']" ) );
+    boolean acceptNextAlert = true;
+    assertTrue(closeAlertAndGetItsText( acceptNextAlert ).matches("^Delete 1 addresses[\\s\\S]$"));
+
+  }
+
+
 }
