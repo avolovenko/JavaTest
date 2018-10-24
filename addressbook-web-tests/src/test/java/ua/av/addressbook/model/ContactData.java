@@ -1,4 +1,4 @@
-package ua.av.addressbook;
+package ua.av.addressbook.model;
 
 public class ContactData {
   private final String firstName;

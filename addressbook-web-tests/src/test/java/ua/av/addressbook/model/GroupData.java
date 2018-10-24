@@ -1,4 +1,4 @@
-package ua.av.addressbook;
+package ua.av.addressbook.model;
 
 public class GroupData {
   private final String gName;
