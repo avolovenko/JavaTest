@@ -2,6 +2,8 @@ package ua.av.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ua.av.addressbook.model.ContactData;
 
 import static org.testng.Assert.assertTrue;
@@ -16,15 +18,22 @@ public class ContactHelper extends HelperBase {
     click( By.xpath("(//input[@name='submit'])[2]"));
   }
 
-  public void fillNewContactData(ContactData contactData) {
-    type(By.name("firstname"), contactData.getFirstName());
-    type(By.name("lastname"), contactData.getLastName());
-    type(By.name("address"), contactData.getAddress());
-    type(By.name("mobile"), contactData.getPhoneMobile());
-    type(By.name("email"), contactData.getEmailAddress());
+  public void fillNewContactData(ContactData contactData, boolean creation) {
+    type( By.name( "firstname" ), contactData.getFirstName( ) );
+    type( By.name( "lastname" ), contactData.getLastName( ) );
+    type( By.name( "address" ), contactData.getAddress( ) );
+    type( By.name( "mobile" ), contactData.getPhoneMobile( ) );
+    type( By.name( "email" ), contactData.getEmailAddress( ) );
+
+    if (creation) {
+      new Select( wd.findElement( By.name( "new_group" ) ) ).selectByVisibleText( contactData.getGroup( ) );
+    } else {
+      Assert.assertFalse( (isElementPresent( By.name( "new_group" ) )) );
+    }
+
     select( By.name( "bday" ), contactData.getbDay( ) );
-    select( By.name( "bmonth" ), contactData.getbMonth() );
-    type( By.name("byear"), contactData.getbYear());
+    select( By.name( "bmonth" ), contactData.getbMonth( ) );
+    type( By.name( "byear" ), contactData.getbYear( ) );
   }
 
   public void initNewContact() {
@@ -52,3 +61,4 @@ public class ContactHelper extends HelperBase {
 
 
 }
+

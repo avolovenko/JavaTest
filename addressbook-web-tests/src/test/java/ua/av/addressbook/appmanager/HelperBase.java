@@ -4,7 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 public class HelperBase {
-  private WebDriver wd;
+  public WebDriver wd;
 
   public HelperBase(WebDriver wd) {
     this.wd = wd;
@@ -50,13 +50,23 @@ public class HelperBase {
       return false;
     }
   }
+
+  public boolean isElementPresent(By locator) {
+    try {
+      wd.findElement( locator );
+      return true;
+    } catch (NoSuchElementException ex) {
+      return false;
+    }
+  }
+/*
   private boolean isElementPresent(By by) {
     try {
-      wd.findElement(by);
+      wd.findElement(locator);
       return true;
     } catch (NoSuchElementException e) {
       return false;
     }
   }
-
+*/
 }
