@@ -28,7 +28,7 @@ public class ContactHelper extends HelperBase {
     if (creation) {
       new Select( wd.findElement( By.name( "new_group" ) ) ).selectByVisibleText( contactData.getGroup( ) );
     } else {
-      Assert.assertFalse( (isElementPresent( By.name( "new_group" ) )) );
+      Assert.assertFalse(isElementPresent( By.name( "new_group" )));
     }
 
     select( By.name( "bday" ), contactData.getbDay( ) );
@@ -49,7 +49,8 @@ public class ContactHelper extends HelperBase {
   }
 
   public void selectContact() {
-    click( By.id("9") );
+    click( By.xpath("//table[@id='maintable']/tbody/tr[2]/td[2]") );
+    click( By.name("selected[]") );
   }
 
   public void deleteContact() {
