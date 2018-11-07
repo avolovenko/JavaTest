@@ -60,6 +60,14 @@ public class ContactHelper extends HelperBase {
 
   }
 
+  public void createContact(ContactData contact, boolean creation) {
+    initNewContact();
+    fillNewContactData(contact, creation);
+    submitNewContact();
+  }
 
+  public boolean isThereAContact() {
+    return isElementPresent( By.xpath("//table[@id='maintable']/tbody/tr[2]/td[2]"));
+  }
 }
 
