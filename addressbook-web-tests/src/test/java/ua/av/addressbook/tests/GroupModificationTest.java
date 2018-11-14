@@ -3,9 +3,7 @@ package ua.av.addressbook.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ua.av.addressbook.model.GroupData;
-
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class GroupModificationTest extends TestBase {

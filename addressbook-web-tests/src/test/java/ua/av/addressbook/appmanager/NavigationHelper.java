@@ -24,4 +24,18 @@ public class NavigationHelper extends HelperBase{
     }
     click( By.linkText("HOME"));
   }
+
+  public void closeContactCreationDlgBox() {
+    if (isAlertPresent( ))  {
+      return;
+    }
+    click( By.linkText("home page"));
+  }
+
+  public void returnToContactPage() {
+    if (isAlertPresent( ))  {
+      return;
+    }
+    click( By.linkText("home page"));
+  }
 }

@@ -73,7 +73,5 @@ public class GroupHelper extends HelperBase {
       groups.add( group );
     }
     return groups;
-
-
   }
 }

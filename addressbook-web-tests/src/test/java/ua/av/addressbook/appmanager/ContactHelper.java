@@ -1,10 +1,15 @@
 package ua.av.addressbook.appmanager;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ua.av.addressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.testng.Assert.assertTrue;
 
@@ -48,9 +53,10 @@ public class ContactHelper extends HelperBase {
     click( By.xpath("(//input[@name='update'])[1]") );
   }
 
-  public void selectContact() {
-    click( By.xpath("//table[@id='maintable']/tbody/tr[2]/td[2]") );
-    click( By.name("selected[]") );
+  public void selectContact(int index) {
+    /*click( By.xpath("//table[@id='maintable']/tbody/tr[2]/td[2]") );
+    click( By.name("selected[]") );*/
+    wd.findElements( By.name("selected[]")).get( index ).click();
   }
 
   public void deleteContact() {
@@ -69,5 +75,29 @@ public class ContactHelper extends HelperBase {
   public boolean isThereAContact() {
     return isElementPresent( By.xpath("//table[@id='maintable']/tbody/tr[2]/td[2]"));
   }
+
+  /*public int getContactCount() {return wd.findElements( By.className( "group" )).size();}*/
+
+  public List<ContactData> getContactList() {
+    List<ContactData> contacts = new ArrayList<ContactData>( );
+    WebElement table = wd.findElement(By.id("maintable"));
+    List<WebElement> elements = wd.findElements(By.xpath( "//table[@id='maintable']/tbody/tr[@name='entry']"));
+    //List<WebElement> elements = wd.findElements(By.tagName( "entry" ));
+    System.out.println("==========================================");
+    System.out.println("Rows number: " + elements.size());
+    for (WebElement element : elements) {
+    System.out.println("Row");
+      int id = Integer.parseInt(element.findElement( By.tagName( "input" )).getAttribute( "value" ));
+      System.out.println("id: " + id);
+      String lastName = element.findElement(By.xpath( "./td[2]")).getText();
+      System.out.println("lastName: " + lastName);
+      String firstName = element.findElement(By.xpath( "./td[3]")).getText();
+      System.out.println("lastName: " + firstName);
+      ContactData contact = new ContactData( id, firstName, lastName, null, null, null, null, null, null, null);
+      contacts.add( contact );
+    }
+    return contacts;
+  }
+
 }
 

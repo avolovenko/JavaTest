@@ -42,7 +42,7 @@ public class HelperBase {
   }
 
 
-  private boolean isAlertPresent() {
+  public boolean isAlertPresent() {
     try {
       wd.switchTo().alert();
       return true;
@@ -59,14 +59,4 @@ public class HelperBase {
       return false;
     }
   }
-/*
-  private boolean isElementPresent(By by) {
-    try {
-      wd.findElement(locator);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-*/
 }
