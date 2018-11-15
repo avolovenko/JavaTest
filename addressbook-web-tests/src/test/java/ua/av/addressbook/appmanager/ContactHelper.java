@@ -1,6 +1,5 @@
 package ua.av.addressbook.appmanager;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -45,8 +44,9 @@ public class ContactHelper extends HelperBase {
     click( By.linkText("ADD_NEW"));
   }
 
-  public void editContact() {
-    click( By.xpath("(//img[@alt='EDIT'])[1]") );
+  public void editContact(int index) {
+    //click( By.xpath("(//img[@alt='EDIT'])[1]") );
+    wd.findElements( By.xpath("(//img[@alt='EDIT'])") ).get( index ).click();
   }
 
   public void submitContactModification() {
@@ -82,7 +82,6 @@ public class ContactHelper extends HelperBase {
     List<ContactData> contacts = new ArrayList<ContactData>( );
     WebElement table = wd.findElement(By.id("maintable"));
     List<WebElement> elements = wd.findElements(By.xpath( "//table[@id='maintable']/tbody/tr[@name='entry']"));
-    //List<WebElement> elements = wd.findElements(By.tagName( "entry" ));
     System.out.println("==========================================");
     System.out.println("Rows number: " + elements.size());
     for (WebElement element : elements) {
