@@ -3,27 +3,29 @@ package ua.av.addressbook.model;
 import java.util.Objects;
 
 public class GroupData {
-  public void setId(int id) {
+  private int id = Integer.MAX_VALUE;
+  private String gName;
+  private String gHeader;
+  private String gFooter;
+
+  public GroupData withId(int id) {
     this.id = id;
+    return this;
   }
 
-  private int id;
-  private final String gName;
-  private final String gHeader;
-  private final String gFooter;
-
-  public GroupData(int id,String gName, String gHeader, String gFooter) {
-    this.id = id;
+  public GroupData withName(String gName) {
     this.gName = gName;
-    this.gHeader = gHeader;
-    this.gFooter = gFooter;
+    return this;
   }
 
-  public GroupData(String gName, String gHeader, String gFooter) {
-    this.id = Integer.MAX_VALUE;
-    this.gName = gName;
+  public GroupData withHeader(String gHeader) {
     this.gHeader = gHeader;
+    return this;
+  }
+
+  public GroupData withFooter(String gFooter) {
     this.gFooter = gFooter;
+    return this;
   }
 
   public int getId() {return id;  }
