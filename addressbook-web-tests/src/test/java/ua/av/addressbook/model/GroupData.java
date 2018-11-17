@@ -49,17 +49,18 @@ public class GroupData {
             ", gName='" + gName + '\'' +
             '}';
   }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass( ) != o.getClass( )) return false;
     GroupData groupData = (GroupData) o;
-    return Objects.equals( gName, groupData.gName );
+    return id == groupData.id &&
+            Objects.equals( gName, groupData.gName );
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash( gName );
+    return Objects.hash( id, gName );
   }
-
 }
