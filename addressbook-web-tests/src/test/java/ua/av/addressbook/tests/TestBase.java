@@ -10,7 +10,7 @@ import static org.openqa.selenium.remote.BrowserType.IE;
 
 public class TestBase {
 
-  protected static ApplicationManager app = new ApplicationManager( CHROME );
+  public static ApplicationManager app = new ApplicationManager( CHROME );
 
   @BeforeSuite
   public void setUp() throws Exception {

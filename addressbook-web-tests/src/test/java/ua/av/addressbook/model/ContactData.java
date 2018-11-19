@@ -3,42 +3,16 @@ package ua.av.addressbook.model;
 import java.util.Objects;
 
 public class ContactData<contact> {
-  private int id;
-  private final String firstName;
-  private final String lastName;
-  private final String address;
-  private final String phoneMobile;
-  private final String emailAddress;
-  private final String group;
-  private final String bDay;
-  private final String bMonth;
-  private final String bYear;
-
-  public ContactData(int id, String firstName, String lastName, String Address, String phoneMobile, String emailAddress, String group, String bDay, String bMonth, String bYear) {
-    this.id = id;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.address = Address;
-    this.phoneMobile = phoneMobile;
-    this.emailAddress = emailAddress;
-    this.group = group;
-    this.bDay = bDay;
-    this.bMonth = bMonth;
-    this.bYear = bYear;
-  }
-
-  public ContactData(String firstName, String lastName, String Address, String phoneMobile, String emailAddress, String group, String bDay, String bMonth, String bYear) {
-    this.id = Integer.MAX_VALUE;;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.address = Address;
-    this.phoneMobile = phoneMobile;
-    this.emailAddress = emailAddress;
-    this.group = group;
-    this.bDay = bDay;
-    this.bMonth = bMonth;
-    this.bYear = bYear;
-  }
+  private int id = Integer.MAX_VALUE;
+  private String firstName;
+  private String lastName;
+  private String address;
+  private String phoneMobile;
+  private String emailAddress;
+  private String group;
+  private String bDay;
+  private String bMonth;
+  private String bYear;
 
   public int getId() { return id;  }
 
@@ -78,8 +52,58 @@ public class ContactData<contact> {
     return group;
   }
 
-  public void setId(int id) {
+  public ContactData withId(int id) {
     this.id = id;
+    return this;
+  }
+
+  /*public ContactData without() {
+    this.id = id;
+    return this;
+  }*/
+  public ContactData withFirstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
+  public ContactData withLastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+  public ContactData withPhoneMobile(String phoneMobile) {
+    this.phoneMobile = phoneMobile;
+    return this;
+  }
+
+  public ContactData withEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
+  }
+
+  public ContactData withbDay(String bDay) {
+    this.bDay = bDay;
+    return this;
+  }
+
+  public ContactData withbMonth(String bMonth) {
+    this.bMonth = bMonth;
+    return this;
+  }
+
+  public ContactData withbYear(String bYear) {
+    this.bYear = bYear;
+    return this;
   }
 
   @Override
@@ -105,4 +129,5 @@ public class ContactData<contact> {
   public int hashCode() {
     return Objects.hash( id, firstName, lastName );
   }
+
 }

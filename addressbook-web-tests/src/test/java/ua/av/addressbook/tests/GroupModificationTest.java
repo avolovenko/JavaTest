@@ -1,17 +1,12 @@
 package ua.av.addressbook.tests;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ua.av.addressbook.model.GroupData;
 import ua.av.addressbook.model.Groups;
 
-import java.util.Set;
-
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 
 public class GroupModificationTest extends TestBase {
@@ -34,9 +29,9 @@ public class GroupModificationTest extends TestBase {
     Groups after = app.group().all();
     assertEquals(after.size(), before.size() );
 
-    before.remove( modifiedGroup);
-    before.add( group );
-    assertThat( after, equalTo(before.without(modifiedGroup).withAdded(modifiedGroup)));
+    /*before.remove( modifiedGroup);
+    before.add( group );*/
+    assertThat( after, equalTo(before.without(modifiedGroup).withAdded(group)));
   }
 
 }

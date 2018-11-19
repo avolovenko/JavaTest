@@ -18,14 +18,14 @@ public class NavigationHelper extends HelperBase{
     click( By.linkText("GROUPS"));
   }
 
-  public void gotoContactPage() {
+  public void ContactPage() {
     if (isElementPresent( By.id("maintable") ) ) {
       return;
     }
     click( By.linkText("HOME"));
   }
 
-  public void closeContactCreationDlgBox() {
+  public void closeDlgBox() {
     if (isAlertPresent( ))  {
       return;
     }

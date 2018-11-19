@@ -5,10 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ua.av.addressbook.model.GroupData;
 import ua.av.addressbook.model.Groups;
-
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class GroupHelper extends HelperBase {
 
@@ -76,10 +73,6 @@ public class GroupHelper extends HelperBase {
     return isElementPresent( By.name("selected[]") );
   }
 
-  public int getGroupCount() {
-    return wd.findElements( By.className( "group" )).size();
-  }
-
   public Groups all() {
     Groups groups = new Groups();
     List<WebElement> elements = wd.findElements( By.cssSelector("span,group"));
@@ -92,5 +85,4 @@ public class GroupHelper extends HelperBase {
     }
     return groups;
   }
-
 }
