@@ -97,8 +97,10 @@ public class ContactHelper extends HelperBase {
       String lastName = element.findElement(By.xpath( "./td[2]")).getText();
       String firstName = element.findElement(By.xpath( "./td[3]")).getText();
       String allPhones = cells.get(5).getText();
+      String allEmails = cells.get(4).getText();
+      String address = cells.get(3).getText();
       contacts.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName)
-              .withAllPhones(allPhones));
+              .withAllPhones(allPhones).withAllEmails(allEmails).withAddress(address));
     }
     return contacts;
   }
@@ -110,8 +112,16 @@ public class ContactHelper extends HelperBase {
     String home = wd.findElement(By.name("home")).getAttribute("value");
     String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
     String work = wd.findElement(By.name("work")).getAttribute("value");
+    String email = wd.findElement(By.name("email")).getAttribute("value");
+    String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+    String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+    String address = wd.findElement(By.cssSelector("textarea[name=\"address\"]")).getText();
+
     wd.navigate().back();
-    return new ContactData().withId( contact.getId() ).withFirstName( firstname ).withLastName( lastname ).withPhoneHome(home).withPhoneMobile(mobile).withPhoneWork(work);
+    return new ContactData().withId( contact.getId() ).withFirstName( firstname ).withLastName( lastname )
+            .withPhoneHome(home).withPhoneMobile(mobile).withPhoneWork(work)
+            .withEmailAddress(email).withEmailAddress2( email2 ).withEmailAddress3( email3 )
+            .withAddress( address );
   }
 
   private void initContactModificationById(int id) {
