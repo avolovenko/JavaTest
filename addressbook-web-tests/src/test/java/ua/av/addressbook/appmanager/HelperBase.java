@@ -3,6 +3,8 @@ package ua.av.addressbook.appmanager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.File;
+
 public class HelperBase {
   public WebDriver wd;
 
@@ -20,6 +22,13 @@ public class HelperBase {
     if (text == null) {
       return;
     } wd.findElement( locator ).sendKeys( text );
+  }
+
+  public void attach(By locator, File file) {
+    if (file != null ) {
+      System.out.println(file.getAbsolutePath() );
+      wd.findElement( locator ).sendKeys( file.getAbsolutePath() );
+    }
   }
 
   public void select(By locator, String text) {

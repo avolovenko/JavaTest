@@ -1,5 +1,6 @@
 package ua.av.addressbook.model;
 
+import java.io.File;
 import java.util.Objects;
 
 public class ContactData<contact> {
@@ -19,6 +20,7 @@ public class ContactData<contact> {
   private String bYear;
   private String allPhones;
   private String allEmails;
+  private File photo;
 
   public int getId() { return id;  }
 
@@ -69,6 +71,8 @@ public class ContactData<contact> {
   public String getAllPhones() { return allPhones; }
 
   public String getAllEmails() {return allEmails; }
+
+  public File getPhoto() {return photo; }
 
   public ContactData withId(int id) {
     this.id = id;
@@ -147,6 +151,11 @@ public class ContactData<contact> {
 
   public ContactData withAllEmails(String allEmails) {
     this.allEmails = allEmails;
+    return this;
+  }
+
+  public ContactData withPhoto(File photo) {
+    this.photo = photo;
     return this;
   }
 
