@@ -1,0 +1,12 @@
+[
+  {
+    "gName": "Test 0",
+    "gHeader": "Header 0",
+    "gFooter": "Footer 0"
+  },
+  {
+    "gName": "Test 1",
+    "gHeader": "Header 1",
+    "gFooter": "Footer 1"
+  }
+]
