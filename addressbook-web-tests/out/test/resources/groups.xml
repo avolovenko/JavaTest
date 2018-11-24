@@ -1,0 +1,17 @@
+<list>
+  <group>
+    <gName>Test 0</gName>
+    <gHeader>Header 0</gHeader>
+    <gFooter>Footer 0</gFooter>
+  </group>
+  <group>
+    <gName>Test 1</gName>
+    <gHeader>Header 1</gHeader>
+    <gFooter>Footer 1</gFooter>
+  </group>
+  <group>
+    <gName>Test 2</gName>
+    <gHeader>Header 2</gHeader>
+    <gFooter>Footer 2</gFooter>
+  </group>
+</list>
