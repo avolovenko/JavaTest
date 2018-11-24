@@ -1,5 +1,5 @@
 <list>
-  <ua.av.addressbook.model.ContactData>
+  <contact>
     <firstName>FirstName 0</firstName>
     <lastName>LastName 0</lastName>
     <address>Address 0</address>
@@ -9,16 +9,9 @@
     <emailAddress>EmailAddress 0</emailAddress>
     <emailAddress2>EmailAddress2 0</emailAddress2>
     <emailAddress3>EmailAddress3 0</emailAddress3>
-  </ua.av.addressbook.model.ContactData>
-  <ua.av.addressbook.model.ContactData>
-    <firstName>FirstName 1</firstName>
-    <lastName>LastName 1</lastName>
-    <address>Address 1</address>
-    <phoneHome>PhoneHome 1</phoneHome>
-    <phoneMobile>PhoneMobile 1</phoneMobile>
-    <phoneWork>PhoneWork 1</phoneWork>
-    <emailAddress>EmailAddress 1</emailAddress>
-    <emailAddress2>EmailAddress2 1</emailAddress2>
-    <emailAddress3>EmailAddress3 1</emailAddress3>
-  </ua.av.addressbook.model.ContactData>
+    <group>Group1</group>
+    <bDay>12</bDay>
+    <bMonth>DECEMBER</bMonth>
+    <bYear>2000</bYear>
+  </contact>
 </list>

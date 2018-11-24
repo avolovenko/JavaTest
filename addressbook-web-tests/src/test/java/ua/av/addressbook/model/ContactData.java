@@ -29,9 +29,13 @@ public class ContactData<contact> {
   private String emailAddress2;
   @Expose
   private String emailAddress3;
+  @Expose
   private String group;
+  @Expose
   private String bDay;
+  @Expose
   private String bMonth;
+  @Expose
   private String bYear;
   private String allPhones;
   private String allEmails;
