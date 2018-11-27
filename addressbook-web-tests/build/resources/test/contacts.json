@@ -1,0 +1,17 @@
+[
+  {
+    "firstName": "FirstName 0",
+    "lastName": "LastName 0",
+    "address": "Address 0",
+    "phoneHome": "PhoneHome 0",
+    "phoneMobile": "PhoneMobile 0",
+    "phoneWork": "PhoneWork 0",
+    "emailAddress": "EmailAddress 0",
+    "emailAddress2": "EmailAddress2 0",
+    "emailAddress3": "EmailAddress3 0",
+    "group": "Group1",
+    "bDay": "12",
+    "bMonth": "DECEMBER",
+    "bYear": "2000"
+  }
+]
