@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ua.av.addressbook.model.ContactData;
 import ua.av.addressbook.model.Contacts;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.testng.Assert.assertTrue;

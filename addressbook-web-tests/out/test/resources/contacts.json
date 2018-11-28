@@ -13,5 +13,20 @@
     "bDay": "12",
     "bMonth": "DECEMBER",
     "bYear": "2000"
+  },
+  {
+    "firstName": "FirstName 1",
+    "lastName": "LastName 1",
+    "address": "Address 1",
+    "phoneHome": "PhoneHome 1",
+    "phoneMobile": "PhoneMobile 1",
+    "phoneWork": "PhoneWork 1",
+    "emailAddress": "EmailAddress 1",
+    "emailAddress2": "EmailAddress2 1",
+    "emailAddress3": "EmailAddress3 1",
+    "group": "Group1",
+    "bDay": "12",
+    "bMonth": "DECEMBER",
+    "bYear": "2000"
   }
 ]
