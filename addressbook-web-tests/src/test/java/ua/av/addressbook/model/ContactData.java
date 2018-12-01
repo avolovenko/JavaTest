@@ -67,9 +67,8 @@ public class ContactData<contact> {
   private String group;
 
   @Expose
-  //@Column(name="bday")
-  //@Type(type="byte")
-  @Transient
+  @Column(name="bday")
+  //@Type(type="tinyint")
   private String bDay;
 
   @Expose
