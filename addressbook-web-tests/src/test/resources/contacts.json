@@ -1,20 +1,5 @@
 [
   {
-    "firstName": "FirstName 0",
-    "lastName": "LastName 0",
-    "address": "Address 0",
-    "phoneHome": "PhoneHome 0",
-    "phoneMobile": "PhoneMobile 0",
-    "phoneWork": "PhoneWork 0",
-    "emailAddress": "EmailAddress 0",
-    "emailAddress2": "EmailAddress2 0",
-    "emailAddress3": "EmailAddress3 0",
-    "group": "Group1",
-    "bDay": "12",
-    "bMonth": "DECEMBER",
-    "bYear": "2000"
-  },
-  {
     "firstName": "FirstName 1",
     "lastName": "LastName 1",
     "address": "Address 1",
@@ -25,7 +10,7 @@
     "emailAddress2": "EmailAddress2 1",
     "emailAddress3": "EmailAddress3 1",
     "group": "Group1",
-    "bDay": "12",
+    "bDay": 10,
     "bMonth": "DECEMBER",
     "bYear": "2000"
   }

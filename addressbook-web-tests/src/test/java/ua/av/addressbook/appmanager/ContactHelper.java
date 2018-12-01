@@ -25,10 +25,14 @@ public class ContactHelper extends HelperBase {
   public void fillNewContactData(ContactData contactData, boolean creation) {
     type( By.name( "firstname" ), contactData.getFirstName( ) );
     type( By.name( "lastname" ), contactData.getLastName( ) );
-    attach( By.name( "photo" ), contactData.getPhoto());
+    //attach( By.name( "photo" ), contactData.getPhoto());
     type( By.name( "address" ), contactData.getAddress( ) );
+    type( By.name( "home" ), contactData.getPhoneHome( ) );
     type( By.name( "mobile" ), contactData.getPhoneMobile( ) );
+    type( By.name( "work" ), contactData.getPhoneWork( ) );
     type( By.name( "email" ), contactData.getEmailAddress( ) );
+    type( By.name( "email2" ), contactData.getEmailAddress2( ) );
+    type( By.name( "email3" ), contactData.getEmailAddress3( ) );
 
     if (creation) {
       new Select( wd.findElement( By.name( "new_group" ) ) ).selectByVisibleText( contactData.getGroup( ) );
@@ -36,7 +40,7 @@ public class ContactHelper extends HelperBase {
       Assert.assertFalse(isElementPresent( By.name( "new_group" )));
     }
 
-    select( By.name( "bday" ), contactData.getbDay( ) );
+    select( By.name( "bday" ), String.valueOf(contactData.getbDay( )));
     select( By.name( "bmonth" ), contactData.getbMonth( ) );
     type( By.name( "byear" ), contactData.getbYear( ) );
   }

@@ -13,6 +13,7 @@ public class GroupModificationTest extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
+    System.out.println("If no");
     if (app.db().groups().size() == 0) {
       app.goTo().groupPage();
       app.group().create(new GroupData().withName( "Group1" ));

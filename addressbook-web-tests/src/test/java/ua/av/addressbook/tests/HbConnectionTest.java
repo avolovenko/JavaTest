@@ -41,7 +41,7 @@ public class HbConnectionTest {
     for ( ContactData contact : result ) {
       System.out.println( contact );
     }
-    session.getTransaction().commit();
+    //session.getTransaction().commit();
     session.close();
 
   }

@@ -71,10 +71,20 @@ public class GroupData {
   @Override
   public String toString() {
     return "GroupData{" +
+            "id=" + id +
+            ", gName='" + gName + '\'' +
+            ", gHeader='" + gHeader + '\'' +
+            ", gFooter='" + gFooter + '\'' +
+            '}';
+  }
+
+  /*@Override
+  public String toString() {
+    return "GroupData{" +
             "Id='" + id + '\'' +
             ", gName='" + gName + '\'' +
             '}';
-  }
+  }*/
 
   @Override
   public boolean equals(Object o) {

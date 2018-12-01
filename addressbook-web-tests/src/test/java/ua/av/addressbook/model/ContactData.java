@@ -9,6 +9,8 @@ import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
+import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
+
 @XStreamAlias("contact")
 @Entity
 @Table(name="addressbook")
@@ -67,9 +69,8 @@ public class ContactData<contact> {
   private String group;
 
   @Expose
-  @Column(name="bday")
-  //@Type(type="tinyint")
-  private String bDay;
+  @Column(name="bday", columnDefinition = "tinyint")
+  private int bDay;
 
   @Expose
   @Column(name="bmonth")
@@ -119,8 +120,8 @@ public class ContactData<contact> {
 
   public String getEmailAddress3() { return emailAddress3; }
 
-  public String getbDay() {
-    return bDay;
+  public Integer getbDay() {
+    return Integer.valueOf(bDay);
   }
 
   public String getbMonth() {
@@ -139,8 +140,7 @@ public class ContactData<contact> {
 
   public String getAllEmails() {return allEmails; }
 
-  public File getPhoto() {return new File(photo);
-  }
+  //public File getPhoto() {return new File(photo);  }
 
   public ContactData withId(int id) {
     this.id = id;
@@ -197,7 +197,7 @@ public class ContactData<contact> {
     return this;
   }
 
-  public ContactData withbDay(String bDay) {
+  public ContactData withbDay(Integer bDay) {
     this.bDay = bDay;
     return this;
   }
@@ -233,22 +233,45 @@ public class ContactData<contact> {
             "id=" + id +
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
+            ", address='" + address + '\'' +
+            ", phoneHome='" + phoneHome + '\'' +
+            ", phoneMobile='" + phoneMobile + '\'' +
+            ", phoneWork='" + phoneWork + '\'' +
+            ", emailAddress='" + emailAddress + '\'' +
+            ", emailAddress2='" + emailAddress2 + '\'' +
+            ", emailAddress3='" + emailAddress3 + '\'' +
+            ", group='" + group + '\'' +
+            ", bDay=" + bDay +
+            ", bMonth='" + toUpperCase(bMonth) + '\'' +
+            ", bYear='" + bYear + '\'' +
+/*            ", allPhones='" + allPhones + '\'' +
+            ", allEmails='" + allEmails + '\'' +*/
             '}';
   }
 
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
-    if (o == null || getClass( ) != o.getClass( )) return false;
+    if (o == null || getClass() != o.getClass()) return false;
     ContactData<?> that = (ContactData<?>) o;
     return id == that.id &&
-            Objects.equals( firstName, that.firstName ) &&
-            Objects.equals( lastName, that.lastName );
+            bDay == that.bDay &&
+            Objects.equals(firstName, that.firstName) &&
+            Objects.equals(lastName, that.lastName) &&
+            Objects.equals(address, that.address) &&
+            Objects.equals(phoneHome, that.phoneHome) &&
+            Objects.equals(phoneMobile, that.phoneMobile) &&
+            Objects.equals(phoneWork, that.phoneWork) &&
+            Objects.equals(emailAddress, that.emailAddress) &&
+            Objects.equals(emailAddress2, that.emailAddress2) &&
+            Objects.equals(emailAddress3, that.emailAddress3) &&
+            Objects.equals(group, that.group) &&
+            Objects.equals(bMonth, that.bMonth) &&
+            Objects.equals(bYear, that.bYear);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash( id, firstName, lastName );
+    return Objects.hash(id, firstName, lastName, address, phoneHome, phoneMobile, phoneWork, emailAddress, emailAddress2, emailAddress3, group, bDay, bMonth, bYear);
   }
-
 }
