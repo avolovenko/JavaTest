@@ -90,16 +90,32 @@ public class GroupData {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+
     GroupData groupData = (GroupData) o;
-    return id == groupData.id &&
+
+    if(id != groupData.id) return false;
+    if (gName != null ? !gName.equals(groupData.gName) : groupData.gName != null) return false;
+    if (gHeader != null ? !gHeader.equals(groupData.gHeader) : groupData.gHeader != null) return false;
+    //return gFooter != null ? gFooter.equals(groupData.gFooter) : groupData.gFooter = null;
+    if (gFooter != null) {
+      return gFooter.equals(groupData.gFooter);
+      } else {return Boolean.parseBoolean(groupData.gFooter = null);
+    }
+
+/*    return id == groupData.id &&
             Objects.equals(gName, groupData.gName) &&
             Objects.equals(gHeader, groupData.gHeader) &&
-            Objects.equals(gFooter, groupData.gFooter);
+            Objects.equals(gFooter, groupData.gFooter);*/
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, gName, gHeader, gFooter);
+    int result = id;
+    result = 31 * result + (gName != null ? gName.hashCode() : 0);
+    result = 31 * result + (gHeader != null ? gHeader.hashCode() : 0);
+    result = 31 * result + (gFooter != null ? gFooter.hashCode() : 0);
+    return result;
+    //return Objects.hash(id, gName, gHeader, gFooter);
   }
 
 }
