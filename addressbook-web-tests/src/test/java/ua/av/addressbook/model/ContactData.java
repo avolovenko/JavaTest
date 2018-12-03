@@ -237,15 +237,13 @@ public class ContactData<contact> {
             ", phoneHome='" + phoneHome + '\'' +
             ", phoneMobile='" + phoneMobile + '\'' +
             ", phoneWork='" + phoneWork + '\'' +
-            ", emailAddress='" + emailAddress + '\'' +
+            /*", emailAddress='" + emailAddress + '\'' +
             ", emailAddress2='" + emailAddress2 + '\'' +
             ", emailAddress3='" + emailAddress3 + '\'' +
-            ", group='" + group + '\'' +
+            ", group='" + group + '\'' +*/
             ", bDay=" + bDay +
             ", bMonth='" + toUpperCase(bMonth) + '\'' +
             ", bYear='" + bYear + '\'' +
-/*            ", allPhones='" + allPhones + '\'' +
-            ", allEmails='" + allEmails + '\'' +*/
             '}';
   }
 
@@ -253,25 +251,63 @@ public class ContactData<contact> {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    ContactData<?> that = (ContactData<?>) o;
-    return id == that.id &&
-            bDay == that.bDay &&
-            Objects.equals(firstName, that.firstName) &&
-            Objects.equals(lastName, that.lastName) &&
-            Objects.equals(address, that.address) &&
-            Objects.equals(phoneHome, that.phoneHome) &&
-            Objects.equals(phoneMobile, that.phoneMobile) &&
-            Objects.equals(phoneWork, that.phoneWork) &&
+
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    ContactData contactData = (ContactData) o;
+    //ContactData<?> that = (ContactData<?>) o;
+
+    if (id != contactData.id) return false;
+    if (firstName != null ? !firstName.equals(contactData.firstName) : contactData.firstName != null) return false;
+    if (lastName != null ? !lastName.equals(contactData.lastName) : contactData.lastName != null) return false;
+    if (address != null ? !address.equals(contactData.address) : contactData.address != null) return false;
+    if (phoneHome != null ? !phoneHome.equals(contactData.phoneHome) : contactData.phoneHome != null) return false;
+    if (phoneMobile != null ? !phoneMobile.equals(contactData.phoneMobile) : contactData.phoneMobile != null) return false;
+    if (phoneWork != null ? !phoneWork.equals(contactData.phoneWork) : contactData.phoneWork != null) return false;
+    //if (bDay != contactData.bDay) return false;
+    if (bMonth != null ? !bMonth.equals(contactData.bMonth) : contactData.bMonth != null) return false;
+    if (bYear != null ? !bYear.equals(contactData.bYear) : contactData.bYear != null) return false;
+    return bYear != null ? bYear.equals(contactData.bYear) : contactData.bYear == null;
+
+
+/*    return id == contactData.id &&
+            Objects.equals(firstName, contactData.firstName) &&
+            Objects.equals(lastName, contactData.lastName) &&
+            Objects.equals(address, contactData.address) &&
+            Objects.equals(phoneHome, contactData.phoneHome) &&
+            Objects.equals(phoneMobile, contactData.phoneMobile) &&
+            Objects.equals(phoneWork, contactData.phoneWork) &&
+
             Objects.equals(emailAddress, that.emailAddress) &&
             Objects.equals(emailAddress2, that.emailAddress2) &&
             Objects.equals(emailAddress3, that.emailAddress3) &&
-            Objects.equals(group, that.group) &&
-            Objects.equals(bMonth, that.bMonth) &&
-            Objects.equals(bYear, that.bYear);
+
+            Objects.equals(group, contactData.group) &&
+            bDay == contactData.bDay &&
+            Objects.equals(bMonth, contactData.bMonth) &&
+            Objects.equals(bYear, contactData.bYear);
+*/
+
   }
+
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, firstName, lastName, address, phoneHome, phoneMobile, phoneWork, emailAddress, emailAddress2, emailAddress3, group, bDay, bMonth, bYear);
+    //return Objects.hash(id, firstName, lastName, address, phoneHome, phoneMobile, phoneWork, /*emailAddress, emailAddress2, emailAddress3, group, bDay, */ bMonth, bYear);
+    int result = id;
+    result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+    result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+    result = 31 * result + (address != null ? address.hashCode() : 0);
+    result = 31 * result + (phoneHome != null ? phoneHome.hashCode() : 0);
+    result = 31 * result + (phoneMobile != null ? phoneMobile.hashCode() : 0);
+    result = 31 * result + (phoneWork != null ? phoneWork.hashCode() : 0);
+    //result = 31 * result + (bDay != null ? bDay.hashCode() : 0);
+    result = 31 * result + (bMonth != null ? bMonth.hashCode() : 0);
+    result = 31 * result + (bYear != null ? bYear.hashCode() : 0);
+    System.out.println("HashCode " + result);
+    return result;
+
   }
 }

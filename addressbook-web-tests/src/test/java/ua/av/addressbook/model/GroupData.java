@@ -96,11 +96,7 @@ public class GroupData {
     if(id != groupData.id) return false;
     if (gName != null ? !gName.equals(groupData.gName) : groupData.gName != null) return false;
     if (gHeader != null ? !gHeader.equals(groupData.gHeader) : groupData.gHeader != null) return false;
-    //return gFooter != null ? gFooter.equals(groupData.gFooter) : groupData.gFooter = null;
-    if (gFooter != null) {
-      return gFooter.equals(groupData.gFooter);
-      } else {return Boolean.parseBoolean(groupData.gFooter = null);
-    }
+    return gFooter != null ? gFooter.equals(groupData.gFooter) : groupData.gFooter == null;
 
 /*    return id == groupData.id &&
             Objects.equals(gName, groupData.gName) &&
