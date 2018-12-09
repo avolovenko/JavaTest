@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 import ua.av.addressbook.model.ContactData;
+import ua.av.addressbook.model.Groups;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -14,6 +15,8 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
+
+import static ua.av.addressbook.tests.TestBase.app;
 
 public class ContactDataGenerator {
 
@@ -81,12 +84,13 @@ public class ContactDataGenerator {
 
   private List<ContactData> generateContacts(int count) {
     List<ContactData> contacts = new ArrayList<ContactData>();
+    Groups groups = app.db().groups();
     for (int i = 0; i<count; i++) {
       contacts.add( new ContactData().withFirstName(String.format("FirstName %s", i)).withLastName(String.format("LastName %s", i))
               .withAddress(String.format("Address %s", i)).withPhoneHome(String.format("PhoneHome %s", i))
               .withPhoneMobile(String.format("PhoneMobile %s", i)).withPhoneWork(String.format("PhoneWork %s", i))
               .withEmailAddress(String.format("EmailAddress %s", i)).withEmailAddress2(String.format("EmailAddress2 %s", i))
-              .withEmailAddress3(String.format("EmailAddress3 %s", i)).withGroup("Group 1")
+              .withEmailAddress3(String.format("EmailAddress3 %s", i)).inGroup(groups.iterator().next())
               .withbDay(Integer.valueOf("10")).withbMonth("December").withbYear("2000"));
     }
     return contacts;

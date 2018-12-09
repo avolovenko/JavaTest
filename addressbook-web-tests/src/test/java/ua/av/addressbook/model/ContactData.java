@@ -7,9 +7,9 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
-
-import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
+import java.util.Set;
 
 @XStreamAlias("contact")
 @Entity
@@ -65,10 +65,6 @@ public class ContactData<contact> {
   private String emailAddress3;
 
   @Expose
-  @Transient
-  private String group;
-
-  @Expose
   @Column(name="bday", columnDefinition = "tinyint")
   private int bDay;
 
@@ -89,6 +85,11 @@ public class ContactData<contact> {
   @Column(name="photo")
   @Type(type="text")
   private String photo;
+
+  @Expose
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "address_in_groups", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private Set<GroupData> groups = new HashSet<GroupData>();
 
   public int getId() { return id;  }
 
@@ -112,6 +113,10 @@ public class ContactData<contact> {
 
   public String getPhoneWork() {return phoneWork; }
 
+  public Groups getGroups() {
+    return new Groups(groups);
+  }
+
   public String getEmailAddress() {
     return emailAddress;
   }
@@ -132,10 +137,10 @@ public class ContactData<contact> {
     return bYear;
   }
 
-  public String getGroup() {
+/*  public String getGroup() {
     return group;
   }
-
+*/
   public String getAllPhones() { return allPhones; }
 
   public String getAllEmails() {return allEmails; }
@@ -192,10 +197,11 @@ public class ContactData<contact> {
     return this;
   }
 
-  public ContactData withGroup(String group) {
+  /*public ContactData withGroup(String group) {
     this.group = group;
     return this;
-  }
+  }*/
+
 
   public ContactData withbDay(Integer bDay) {
     this.bDay = bDay;
@@ -285,5 +291,10 @@ public class ContactData<contact> {
     result = 31 * result + (bMonth != null ? bMonth.hashCode() : 0);
     result = 31 * result + (bYear != null ? bYear.hashCode() : 0);
     return result;
+  }
+
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
+    return this;
   }
 }

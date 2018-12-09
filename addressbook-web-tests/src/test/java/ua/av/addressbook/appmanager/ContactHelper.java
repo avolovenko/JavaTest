@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ua.av.addressbook.model.ContactData;
 import ua.av.addressbook.model.Contacts;
+import ua.av.addressbook.model.GroupData;
+
 import java.util.List;
 
 import static org.testng.Assert.assertTrue;
@@ -35,8 +37,10 @@ public class ContactHelper extends HelperBase {
     type( By.name( "email3" ), contactData.getEmailAddress3( ) );
 
     if (creation) {
-      new Select( wd.findElement( By.name( "new_group" ) ) ).selectByVisibleText( contactData.getGroup( ) );
-      //new Select( wd.findElement( By.name( "new_group" ) ) ).selectByVisibleText( "Group 1" );
+      if (contactData.getGroups().size() > 0 ) {
+        Assert.assertTrue(contactData.getGroups().size() == 1);
+        new Select( wd.findElement( By.name( "new_group" ) ) ).selectByVisibleText(String.valueOf(contactData.getGroups().iterator().next().getgName()));
+      }
     } else {
       Assert.assertFalse(isElementPresent( By.name( "new_group" )));
     }
@@ -67,6 +71,9 @@ public class ContactHelper extends HelperBase {
     click( By.xpath( "//input[@value='DELETE']" ) );
     boolean acceptNextAlert = true;
     assertTrue(closeAlertAndGetItsText( acceptNextAlert ).matches("^Delete 1 addresses[\\s\\S]$"));
+  }
+  public void selectAllContacts() {
+    wd.findElement(By.name("group")).click();
   }
 
   public void delete(ContactData contact) {
@@ -132,6 +139,13 @@ public class ContactHelper extends HelperBase {
 
   private void initContactModificationById(int id) {
     wd.findElement( By.cssSelector( String.format( "a[href='edit.php?id=%s']", id ) ) ).click();
+  }
+
+  public void addToGroup(ContactData contact, GroupData group) {
+    selectContactById(contact.getId());
+    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(String.valueOf(group.getgName()));
+    click( By.name("add"));
+    app.goTo().returnToContactPage();
   }
 
 }

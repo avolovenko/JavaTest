@@ -62,12 +62,14 @@ public class TestBase {
     if (Boolean.getBoolean("verifyUI")) {
       Groups dbGroups = app.db().groups();
       Groups uiGroups = app.group().all();
-      assertThat(uiGroups, equalTo(dbGroups));
-/*
-      assertThat(uiGroups, equalTo(dbGroups.stream()
-              .map((g) -> new GroupData().withId(g.getId()).withName(g.getgName()))
-              .collect(Collectors.toSet())));
-*/
+      //assertThat(uiGroups, equalTo(dbGroups));
+
+      assertThat(uiGroups.stream()
+                      .map((g) -> new GroupData().withId(g.getId()).withName(g.getgName()))
+                      .collect(Collectors.toSet()),
+              equalTo(dbGroups.stream()
+                      .map((g) -> new GroupData().withId(g.getId()).withName(g.getgName()))
+                      .collect(Collectors.toSet())));
     }
   }
 

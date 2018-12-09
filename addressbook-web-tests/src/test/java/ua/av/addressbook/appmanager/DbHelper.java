@@ -48,6 +48,17 @@ public class DbHelper {
     return new Contacts(result);
   }
 
+  public Groups availableGroups(Integer contact) {
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    List<GroupData> result = session.createQuery( "from group_list gl where group_id not IN (select aig.group_id from address_in_groups aig where aig.id = " + contact + ")" ).list();
+    for (GroupData group : result ) {
+      System.out.println(group);
+    }
+    session.getTransaction().commit();
+    session.close();
+    return new Groups(result);
+  }
 
 }
 
