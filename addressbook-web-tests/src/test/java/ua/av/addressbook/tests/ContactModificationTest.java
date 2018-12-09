@@ -33,7 +33,7 @@ public class ContactModificationTest extends TestBase {
             .withPhoneHome("12345").withPhoneMobile("697975432").withPhoneWork("2336")
             //.withEmailAddress("email@gmail.com").withEmailAddress2("email2@gmail.com").withEmailAddress3("email3@gmail.com")
             .withbDay(Integer.valueOf("12"))
-            .withbMonth("DECEMBER").withbYear("2000");
+            .withbMonth("December").withbYear("2000");
     app.contact().modify(contact);
     Contacts after = app.db().contacts();
     assertEquals( after.size(), before.size());

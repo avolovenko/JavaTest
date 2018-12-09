@@ -36,11 +36,13 @@ public class ContactHelper extends HelperBase {
 
     if (creation) {
       new Select( wd.findElement( By.name( "new_group" ) ) ).selectByVisibleText( contactData.getGroup( ) );
+      //new Select( wd.findElement( By.name( "new_group" ) ) ).selectByVisibleText( "Group 1" );
     } else {
       Assert.assertFalse(isElementPresent( By.name( "new_group" )));
     }
 
     select( By.name( "bday" ), String.valueOf(contactData.getbDay( )));
+    //select( By.name( "bmonth" ), contactData.getbMonth( ) );
     selectByValue( By.name( "bmonth" ), contactData.getbMonth( ) );
     type( By.name( "byear" ), contactData.getbYear( ) );
   }

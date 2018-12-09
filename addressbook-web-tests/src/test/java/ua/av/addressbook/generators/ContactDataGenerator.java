@@ -86,8 +86,8 @@ public class ContactDataGenerator {
               .withAddress(String.format("Address %s", i)).withPhoneHome(String.format("PhoneHome %s", i))
               .withPhoneMobile(String.format("PhoneMobile %s", i)).withPhoneWork(String.format("PhoneWork %s", i))
               .withEmailAddress(String.format("EmailAddress %s", i)).withEmailAddress2(String.format("EmailAddress2 %s", i))
-              .withEmailAddress3(String.format("EmailAddress3 %s", i)).withGroup("Group1")
-              .withbDay(Integer.valueOf("10")).withbMonth("DECEMBER").withbYear("2000"));
+              .withEmailAddress3(String.format("EmailAddress3 %s", i)).withGroup("Group 1")
+              .withbDay(Integer.valueOf("10")).withbMonth("December").withbYear("2000"));
     }
     return contacts;
   }
