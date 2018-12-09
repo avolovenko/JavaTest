@@ -125,6 +125,7 @@ public class ContactData<contact> {
   }
 
   public String getbMonth() {
+    //String month = Character.toUpperCase(bMonth.charAt(0)) + bMonth.substring(1).toLowerCase();
     return bMonth;
   }
 
@@ -240,9 +241,9 @@ public class ContactData<contact> {
             /*", emailAddress='" + emailAddress + '\'' +
             ", emailAddress2='" + emailAddress2 + '\'' +
             ", emailAddress3='" + emailAddress3 + '\'' +
-            ", group='" + group + '\'' +*/
-            ", bDay=" + bDay +
-            ", bMonth='" + toUpperCase(bMonth) + '\'' +
+            ", group='" + group + '\'' +
+            ", bDay=" + bDay + */
+            ", bMonth='" + bMonth + '\'' +
             ", bYear='" + bYear + '\'' +
             '}';
   }
@@ -278,11 +279,9 @@ public class ContactData<contact> {
             Objects.equals(phoneHome, contactData.phoneHome) &&
             Objects.equals(phoneMobile, contactData.phoneMobile) &&
             Objects.equals(phoneWork, contactData.phoneWork) &&
-
             Objects.equals(emailAddress, that.emailAddress) &&
             Objects.equals(emailAddress2, that.emailAddress2) &&
             Objects.equals(emailAddress3, that.emailAddress3) &&
-
             Objects.equals(group, contactData.group) &&
             bDay == contactData.bDay &&
             Objects.equals(bMonth, contactData.bMonth) &&

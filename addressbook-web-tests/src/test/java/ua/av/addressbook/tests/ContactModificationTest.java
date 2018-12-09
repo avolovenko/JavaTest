@@ -32,11 +32,12 @@ public class ContactModificationTest extends TestBase {
             .withId(modifiedContact.getId()).withFirstName("FirstName").withLastName("LastName").withAddress("Address street, 5/1, City, PostCode")
             .withPhoneHome("12345").withPhoneMobile("697975432").withPhoneWork("2336")
             //.withEmailAddress("email@gmail.com").withEmailAddress2("email2@gmail.com").withEmailAddress3("email3@gmail.com")
-            //.withbDay(Integer.valueOf("12"))
+            .withbDay(Integer.valueOf("12"))
             .withbMonth("DECEMBER").withbYear("2000");
     app.contact().modify(contact);
     Contacts after = app.db().contacts();
     assertEquals( after.size(), before.size());
+
     assertThat(after, equalTo(before.without( modifiedContact ).withAdded( contact )));
   }
 
