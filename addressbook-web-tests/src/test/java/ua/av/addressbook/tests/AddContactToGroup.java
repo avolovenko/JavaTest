@@ -8,6 +8,7 @@ import ua.av.addressbook.model.GroupData;
 import ua.av.addressbook.model.Groups;
 
 import java.security.acl.Group;
+import java.util.NoSuchElementException;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -38,14 +39,26 @@ public class AddContactToGroup extends TestBase {
   @Test
   public void testContactAddToGroup() throws Exception {
 
-    //Groups availableGroups = app.db().availableGroups(contact.getId());
-    ContactData usedContact = app.db().contacts().iterator().next();
-    Groups before = app.db().availableGroups(usedContact.getId());
-    GroupData usedGroup = before.iterator().next();
-    app.contact().addToGroup(usedContact, usedGroup);
-    Groups after = app.db().availableGroups(usedContact.getId());
-    assertEquals( after.size(), before.size() - 1);
-    assertThat(after, equalTo(before.without(usedGroup)));
+    //ContactData usedContact = app.db().contacts().iterator().next();
+    Contacts before = app.db().contacts();
+    System.out.println(before);
+    Groups groups = app.db().groups();
+
+    outerloop:
+    {
+      for (ContactData contact : before) {
+        for (GroupData group : groups) {
+          if (!contact.getGroups().contains(group.getId())) {
+            app.contact().addToGroup(contact, group);
+            break outerloop;
+          }
+        }
+      }
+    }
+
+    Contacts after = app.db().contacts();
+    assertThat(after, equalTo(before));
+    
   }
 
 }

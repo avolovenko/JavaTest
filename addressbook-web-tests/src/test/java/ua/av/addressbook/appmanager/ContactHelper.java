@@ -145,7 +145,7 @@ public class ContactHelper extends HelperBase {
     selectContactById(contact.getId());
     new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(String.valueOf(group.getgName()));
     click( By.name("add"));
-    app.goTo().returnToContactPage();
+    app.goTo().ContactPage();
   }
 
 }

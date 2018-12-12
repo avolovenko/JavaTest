@@ -28,9 +28,9 @@ public class DbHelper {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<GroupData> result = session.createQuery( "from GroupData" ).list();
-    for ( GroupData group : result ) {
+    /*for ( GroupData group : result ) {
       System.out.println( group );
-    }
+    }*/
     session.getTransaction().commit();
     session.close();
     return new Groups(result);
@@ -40,24 +40,12 @@ public class DbHelper {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<ContactData> result = session.createQuery( "from ContactData where deprecated = '0000-00-00'" ).list();
-    for ( ContactData contact : result ) {
+    /*for ( ContactData contact : result ) {
       System.out.println( contact );
-    }
+    }*/
     session.getTransaction().commit();
     session.close();
     return new Contacts(result);
-  }
-
-  public Groups availableGroups(Integer contact) {
-    Session session = sessionFactory.openSession();
-    session.beginTransaction();
-    List<GroupData> result = session.createQuery( "from group_list gl where group_id not IN (select aig.group_id from address_in_groups aig where aig.id = " + contact + ")" ).list();
-    for (GroupData group : result ) {
-      System.out.println(group);
-    }
-    session.getTransaction().commit();
-    session.close();
-    return new Groups(result);
   }
 
 }

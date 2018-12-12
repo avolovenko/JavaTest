@@ -233,6 +233,11 @@ public class ContactData<contact> {
     return this;
   }
 
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
+    return this;
+  }
+
   @Override
   public String toString() {
     return "ContactData{" +
@@ -243,21 +248,15 @@ public class ContactData<contact> {
             ", phoneHome='" + phoneHome + '\'' +
             ", phoneMobile='" + phoneMobile + '\'' +
             ", phoneWork='" + phoneWork + '\'' +
-            /*", emailAddress='" + emailAddress + '\'' +
-            ", emailAddress2='" + emailAddress2 + '\'' +
-            ", emailAddress3='" + emailAddress3 + '\'' +
-            ", group='" + group + '\'' +*/
             ", bDay=" + bDay +
             ", bMonth='" + bMonth + '\'' +
             ", bYear='" + bYear + '\'' +
+            ", groups=" + groups +
             '}';
   }
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
 
@@ -273,10 +272,8 @@ public class ContactData<contact> {
     if (bDay != contactData.bDay) return false;
     if (bMonth != null ? !bMonth.equals(contactData.bMonth) : contactData.bMonth != null) return false;
     if (bYear != null ? !bYear.equals(contactData.bYear) : contactData.bYear != null) return false;
-    return bYear != null ? bYear.equals(contactData.bYear) : contactData.bYear == null;
+    return groups != null ? groups.equals(contactData.groups) : contactData.groups == null;
   }
-
-
 
   @Override
   public int hashCode() {
@@ -290,11 +287,9 @@ public class ContactData<contact> {
     result = 31 * result + bDay;
     result = 31 * result + (bMonth != null ? bMonth.hashCode() : 0);
     result = 31 * result + (bYear != null ? bYear.hashCode() : 0);
+    result = 31 * result + (groups != null ? groups.hashCode() : 0);
     return result;
   }
 
-  public ContactData inGroup(GroupData group) {
-    groups.add(group);
-    return this;
-  }
+
 }
