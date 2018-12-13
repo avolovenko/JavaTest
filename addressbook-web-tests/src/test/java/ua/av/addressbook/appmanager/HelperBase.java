@@ -43,6 +43,7 @@ public class HelperBase {
     wd.findElement(locator).click();
   }
 
+
   public String closeAlertAndGetItsText(boolean acceptNextAlert) {
     try {
       Alert alert = wd.switchTo().alert();

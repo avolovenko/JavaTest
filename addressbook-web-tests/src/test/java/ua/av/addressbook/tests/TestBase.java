@@ -9,6 +9,8 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import ua.av.addressbook.appmanager.ApplicationManager;
+import ua.av.addressbook.model.ContactData;
+import ua.av.addressbook.model.Contacts;
 import ua.av.addressbook.model.GroupData;
 import ua.av.addressbook.model.Groups;
 
@@ -73,5 +75,15 @@ public class TestBase {
     }
   }
 
+  protected Groups refreshContact(Integer findContact) {
+    Contacts contacts = app.db().contacts();
+    for (ContactData contact : contacts) {
+      if (contact.getId() == findContact) {
+        return contact.getGroups();
+      }
+      return null;
+    }
+    return null;
+  }
 }
 

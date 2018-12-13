@@ -25,6 +25,10 @@ public class NavigationHelper extends HelperBase{
     click( By.linkText("HOME"));
   }
 
+  public void Home() {
+    click( By.linkText("HOME"));
+  }
+
   public void closeDlgBox() {
     if (isAlertPresent( ))  {
       return;

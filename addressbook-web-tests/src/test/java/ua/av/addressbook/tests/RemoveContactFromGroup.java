@@ -7,9 +7,10 @@ import ua.av.addressbook.model.Contacts;
 import ua.av.addressbook.model.GroupData;
 import ua.av.addressbook.model.Groups;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 
-public class AddContactToGroup extends TestBase {
+public class RemoveContactFromGroup extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
@@ -21,7 +22,7 @@ public class AddContactToGroup extends TestBase {
 
     if (app.db().contacts().size() == 0) {
       Groups groups = app.db().groups();
-      app.goTo( ).ContactPage();
+      app.goTo().ContactPage();
       app.contact().create(new ContactData().withFirstName("NewFirstName").withLastName("NewLastName").withAddress("NewAddress street, 5/1, City, PostCode")
               .withPhoneHome("1111").withPhoneMobile("2222").withPhoneWork("2336")
               .withbDay(Integer.valueOf("12"))
@@ -30,28 +31,29 @@ public class AddContactToGroup extends TestBase {
     }
   }
 
+
   @Test
-  public void testContactAddToGroup() throws Exception {
+  public void testRemoveContactFromGroup() throws Exception {
 
-    Contacts before = app.db().contacts();
-    System.out.println(before);
-    Groups groups = app.db().groups();
+    Contacts contacts = app.db().contacts();
+    //Groups groups = app.db().groups();
 
-    outerloop:
-    {
-      for (ContactData contact : before) {
-        for (GroupData group : groups) {
-          if (!contact.getGroups().contains(group.getId())) {
-            Groups groupsBefore = contact.getGroups();
-            app.contact().addToGroup(contact, group);
-            Groups groupsAfter = refreshContact(contact.getId());
-            assertEquals(groupsAfter.size(), groupsBefore.size() + 1);
-            break outerloop;
-          }
-        }
+    app.goTo().ContactPage();
+    for (ContactData contact : contacts) {
+      if (contact.getGroups() != null) {
+        Groups groupsBefore = contact.getGroups();
+        app.contact().removeFromGroup(contact.getId(), String.valueOf(contact.getGroups().iterator().next().getId()));
+        Groups groupsAfter = refreshContact(contact.getId());
+        assertEquals(groupsAfter.size(), groupsBefore.size() - 1);
+        return;
+      } else {
+        System.out.println("There are no contacts in groups");
       }
+
     }
 
   }
 
 }
+
+

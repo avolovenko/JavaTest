@@ -86,8 +86,8 @@ public class ContactHelper extends HelperBase {
     initNewContact();
     fillNewContactData(contact, creation);
     submitNewContact();
-    app.goTo().closeDlgBox();
-    app.goTo().ContactPage();
+    //app.goTo().closeDlgBox();
+    app.goTo().Home();
   }
 
   public void modify(ContactData contact) {
@@ -148,5 +148,11 @@ public class ContactHelper extends HelperBase {
     app.goTo().ContactPage();
   }
 
+  public void removeFromGroup(Integer contact, String group) {
+    selectByValue(By.name( "group" ), group);
+    selectContactById(contact);
+    click( By.name("remove"));
+    app.goTo().ContactPage();
+  }
 }
 
