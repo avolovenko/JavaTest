@@ -4,6 +4,7 @@ import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import ua.annav.mantis.appmanager.ApplicationManager;
+import ua.annav.mantis.appmanager.HttpSession;
 
 import java.io.IOException;
 
@@ -28,6 +29,7 @@ public class TestBase {
   public void tearDown() throws Exception {
     app.stop( );
   }
+
 
 }
 
