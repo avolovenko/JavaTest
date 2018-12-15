@@ -31,7 +31,7 @@ public class JamesHelper {
 
   public boolean doesUserExist(String name) throws IOException {
     initTelnetSession();
-    write("verify" + name);
+    write("verify " + name);
     String result = readUntil("exist");
     closeTelnetSession();
     return result.trim().equals("User " + name + " exist");
@@ -72,9 +72,9 @@ public class JamesHelper {
     write("");
 
     readUntil("Login id:");
-    write("");
+    write(login);
     readUntil("Password:");
-    write("");
+    write(password);
 
     readUntil("Welcome "+login+" . HELP for a list of commands");
   }
