@@ -1,36 +1,37 @@
 package ua.annav.mantis.appmanager;
 
-import sun.net.ftp.FtpClient;
-import sun.net.ftp.FtpProtocolException;
+import org.apache.commons.net.ftp.FTPClient;
+import ua.annav.mantis.appmanager.ApplicationManager;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
 public class FtpHelper {
-  private final ApplicationManager app;
-  private FtpClient ftp;
 
-  public FtpHelper(ApplicationManager applicationManager) {
+  private final ApplicationManager app;
+  private FTPClient ftp;
+
+  public FtpHelper(ApplicationManager app){
     this.app = app;
-    ftp = new FtpClient;
+    ftp = new FTPClient();
   }
 
-  public void upload(File file, String target, String backup) throws IOException, FtpProtocolException {
+  public void upload(File file, String target,String backUp) throws IOException {
     ftp.connect(app.getProperty("ftp.host"));
     ftp.login(app.getProperty("ftp.login"), app.getProperty("ftp.password"));
-    ftp.deleteFile(backup);
-    ftp.rename(target, backup);
+    ftp.deleteFile(backUp);
+    ftp.rename(target, backUp);
     ftp.enterLocalPassiveMode();
     ftp.storeFile(target, new FileInputStream(file));
     ftp.disconnect();
   }
 
-  public void restore(String backup, String target) throws IOException, FtpProtocolException {
+  public void restore(String backUp, String target) throws IOException {
     ftp.connect(app.getProperty("ftp.host"));
     ftp.login(app.getProperty("ftp.login"), app.getProperty("ftp.password"));
-    ftp.deleteFile(backup);
-    ftp.rename(backup, target);
-    ftp.disconnet();
+    ftp.deleteFile(target);
+    ftp.rename(backUp, target);
+    ftp.disconnect();
   }
 }

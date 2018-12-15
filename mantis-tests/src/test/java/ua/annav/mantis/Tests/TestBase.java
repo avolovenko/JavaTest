@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class TestBase {
 
-  public static ApplicationManager app = null;
+  protected static ApplicationManager app = null;
 
   static {
     try {
@@ -29,7 +29,7 @@ public class TestBase {
 
   @AfterSuite (alwaysRun = true)
   public void tearDown() throws Exception {
-    app.ftp.restore("config_inc.php.bak", "config_inc.php");
+    app.ftp().restore("config_inc.php.bak", "config_inc.php");
     app.stop( );
   }
 

@@ -9,7 +9,6 @@ import org.openqa.selenium.remote.BrowserType;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.SocketAddress;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -21,6 +20,7 @@ public class ApplicationManager {
   private String browser;
   private RegistrationHelper registrationHelper;
   private FtpHelper ftp;
+  private MailHelper mailHelper;
 
   public ApplicationManager(String browser) throws IOException {
     this.browser = browser;
@@ -42,7 +42,7 @@ public class ApplicationManager {
     return new HttpSession(this);
   }
 
-  public SocketAddress getProperty(String key) {
+  public String getProperty(String key) {
     return properties.getProperty(key);
   }
 
@@ -76,4 +76,12 @@ public class ApplicationManager {
     }
     return wd;
   }
+
+  public MailHelper mail() {
+    if (mailHelper == null) {
+      mailHelper = new MailHelper(this);
+    }
+    return mailHelper;
+  }
+
 }
