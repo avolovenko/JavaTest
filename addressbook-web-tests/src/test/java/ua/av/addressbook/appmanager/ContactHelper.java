@@ -72,6 +72,7 @@ public class ContactHelper extends HelperBase {
     boolean acceptNextAlert = true;
     assertTrue(closeAlertAndGetItsText( acceptNextAlert ).matches("^Delete 1 addresses[\\s\\S]$"));
   }
+
   public void selectAllContacts() {
     wd.findElement(By.name("group")).click();
   }

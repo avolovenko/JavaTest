@@ -12,16 +12,18 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class ApplicationManager {
+public class ApplicationManager  {
 
   private final Properties properties;
-  private WebDriver wd;
+  WebDriver wd;
 
   private String browser;
   private RegistrationHelper registrationHelper;
   private FtpHelper ftp;
   private MailHelper mailHelper;
   private JamesHelper jamesHelper;
+  private DbHelper dbHelper;
+  private UserHelper userHelper;
 
   public ApplicationManager(String browser) throws IOException {
     this.browser = browser;
@@ -90,6 +92,14 @@ public class ApplicationManager {
       jamesHelper = new JamesHelper(this);
     }
     return jamesHelper;
+  }
+
+  public DbHelper db() {
+    return dbHelper;
+  }
+
+  public UserHelper user() {
+    return userHelper;
   }
 
 }
