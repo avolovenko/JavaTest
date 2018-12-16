@@ -24,6 +24,7 @@ public class ApplicationManager  {
   private JamesHelper jamesHelper;
   private DbHelper dbHelper;
   private UserHelper userHelper;
+  private UiHelper ui;
 
   public ApplicationManager(String browser) throws IOException {
     this.browser = browser;
@@ -49,20 +50,6 @@ public class ApplicationManager  {
     return properties.getProperty(key);
   }
 
-  public RegistrationHelper registration() {
-    if (registrationHelper == null) {
-      registrationHelper = new RegistrationHelper(this);
-    }
-    return registrationHelper;
-  }
-
-  public FtpHelper ftp() {
-    if (ftp == null) {
-      ftp = new FtpHelper(this);
-    }
-    return ftp;
-  }
-
   public WebDriver getDriver() {
     if (wd == null) {
       if (browser.equals( BrowserType.CHROME )) {
@@ -80,6 +67,20 @@ public class ApplicationManager  {
     return wd;
   }
 
+  public RegistrationHelper registration() {
+    if (registrationHelper == null) {
+      registrationHelper = new RegistrationHelper(this);
+    }
+    return registrationHelper;
+  }
+
+  public FtpHelper ftp() {
+    if (ftp == null) {
+      ftp = new FtpHelper(this);
+    }
+    return ftp;
+  }
+
   public MailHelper mail() {
     if (mailHelper == null) {
       mailHelper = new MailHelper(this);
@@ -95,11 +96,24 @@ public class ApplicationManager  {
   }
 
   public DbHelper db() {
+    if (dbHelper == null) {
+      dbHelper = new DbHelper();
+    }
     return dbHelper;
   }
 
   public UserHelper user() {
+    if (userHelper == null) {
+      userHelper = new UserHelper(this);
+    }
     return userHelper;
+  }
+
+  public UiHelper ui() {
+    if (ui == null) {
+      ui = new UiHelper(this);
+    }
+    return ui;
   }
 
 }

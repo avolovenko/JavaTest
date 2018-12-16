@@ -4,9 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Objects;
 
 
-  @Entity
+@Entity
   @Table(name="mantis_user_table")
   public class UserData {
     @Id
@@ -26,7 +27,22 @@ import javax.persistence.Table;
     public String getEmail() { return email; }
 
 
-    @Override
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    UserData userData = (UserData) o;
+    return id == userData.id &&
+            Objects.equals(userName, userData.userName) &&
+            Objects.equals(email, userData.email);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, userName, email);
+  }
+
+  @Override
     public String toString() {
       return "UserData{" +
               "id=" + id +

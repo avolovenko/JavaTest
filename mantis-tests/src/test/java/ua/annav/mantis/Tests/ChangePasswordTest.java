@@ -23,25 +23,26 @@ public class ChangePasswordTest extends TestBase  {
 
   @Test
   public void TestChangePasswordT() throws IOException {
-
+    long now = System.currentTimeMillis();
+    String realName = "RealUserName";
+    //String.format("user%s", now);
     String password = "password1";
 
-    Integer count = app.db().users().size();
     Users users = app.db().users();
     UserData user = users.iterator().next();
 
-    HttpSession session = app.newSession();
-    session.login(app.getProperty("web.adminLogin"), app.getProperty("web.adminPassword"));
-    app.user().manageUsers();
-    app.user().resetPasswordByAdmin(user);
-    List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000);
+    app.ui().login(app.getProperty("web.adminLogin"), app.getProperty("web.adminPassword"));
+    app.ui().manageUsers();
+    app.ui().resetPasswordByAdmin(user);
+    app.ui().logout();
+
+    List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);
     String resetPasswordLink = findResetPasswordLink(mailMessages, user.getEmail());
 
-    app.user().submitResetPasswordByUser(resetPasswordLink, password);
+    app.ui().submitResetPasswordByUser(resetPasswordLink, realName, password);
+    app.ui().exit();
+
     assertTrue(app.newSession().login(user.getName(), password));
-
-
-
 
 
 
