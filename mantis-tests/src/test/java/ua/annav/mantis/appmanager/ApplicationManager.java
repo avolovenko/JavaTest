@@ -25,6 +25,7 @@ public class ApplicationManager  {
   private DbHelper dbHelper;
   private UserHelper userHelper;
   private UiHelper ui;
+  private SoapHelper soapHelper;
 
   public ApplicationManager(String browser) throws IOException {
     this.browser = browser;
@@ -114,6 +115,13 @@ public class ApplicationManager  {
       ui = new UiHelper(this);
     }
     return ui;
+  }
+
+  public SoapHelper soap() {
+    if (soapHelper == null) {
+      soapHelper = new SoapHelper(this);
+    }
+    return soapHelper;
   }
 
 }
