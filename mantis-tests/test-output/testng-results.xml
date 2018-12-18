@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default Suite" duration-ms="3235" started-at="2018-12-18T22:42:26Z" finished-at="2018-12-18T22:42:29Z">
+    <groups>
+    </groups>
+    <test name="sandboxAV" duration-ms="3235" started-at="2018-12-18T22:42:26Z" finished-at="2018-12-18T22:42:29Z">
+      <class name="ua.annav.mantis.Tests.SoapTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:ua.annav.mantis.Tests.SoapTests@21bcffb5]" name="setUp" is-config="true" duration-ms="62" started-at="2018-12-18T22:42:26Z" finished-at="2018-12-18T22:42:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testCreateIssue()[pri:0, instance:ua.annav.mantis.Tests.SoapTests@21bcffb5]" name="testCreateIssue" duration-ms="2702" started-at="2018-12-18T22:42:26Z" finished-at="2018-12-18T22:42:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreateIssue -->
+        <test-method status="PASS" signature="testGetProjects()[pri:0, instance:ua.annav.mantis.Tests.SoapTests@21bcffb5]" name="testGetProjects" duration-ms="232" started-at="2018-12-18T22:42:29Z" finished-at="2018-12-18T22:42:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetProjects -->
+        <test-method status="PASS" signature="testIssueStatus()[pri:0, instance:ua.annav.mantis.Tests.SoapTests@21bcffb5]" name="testIssueStatus" duration-ms="268" started-at="2018-12-18T22:42:29Z" finished-at="2018-12-18T22:42:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testIssueStatus -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:ua.annav.mantis.Tests.SoapTests@21bcffb5]" name="tearDown" is-config="true" duration-ms="0" started-at="2018-12-18T22:42:29Z" finished-at="2018-12-18T22:42:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ua.annav.mantis.Tests.SoapTests -->
+    </test> <!-- sandboxAV -->
+  </suite> <!-- Default Suite -->
+</testng-results>

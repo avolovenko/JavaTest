@@ -3,10 +3,7 @@
 <suite name="Suite1" verbose="1" >
     <test name="Groups" >
         <classes>
-            <class name="ua.av.addressbook.tests.GroupCreationTest" />
             <class name="ua.av.addressbook.tests.GroupModificationTest" />
-            <class name="ua.av.addressbook.tests.GroupDeletionTest" />
-
         </classes>
     </test>
 </suite>

@@ -19,7 +19,7 @@ import static org.testng.Assert.assertEquals;
 public class RestTests extends TestBase {
 
 
-  @Test (enabled = false)
+  @Test
   public void testCreateIssue() throws IOException {
     Set<Issue> oldIssues = getIssue();
     Issue newIssue = new Issue().withSubject("Test Issue").withDescription("New test issue");
