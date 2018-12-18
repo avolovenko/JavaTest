@@ -10,6 +10,8 @@ import org.testng.SkipException;
 import java.io.IOException;
 import java.util.Set;
 
+import static org.testng.Assert.assertEquals;
+
 public class TestBase {
 
 
@@ -40,27 +42,23 @@ public class TestBase {
   }
 
   boolean isIssueOpen(int issueId) throws IOException {
+
     String url = "http://bugify.stqa.ru/api/issues/" + issueId + ".json";
     String json = getExecutor().execute(Request.Get(url)).returnContent().asString();
-    //System.out.println("JSON " + json);
     JsonElement parsed = new JsonParser().parse(json);
-    JsonElement issues = parsed.getAsJsonObject().get("issues");
-    JsonObject paramArra = issues.getAsJsonArray("issues");
+    JsonArray array = parsed.getAsJsonObject().get("issues").getAsJsonArray();
 
+    if (array.size() != 1) {
+      throw new IllegalArgumentException("Return more that 1 issue");
+    }
 
-    JsonElement aa = issues.getAsJsonObject().get("state");
-    //Set<Issue> set = new Gson().fromJson(issues, new TypeToken<Set<Issue>>() {}.getType());
-    
+    JsonElement elm = array.get(0);
+    JsonElement state = elm.getAsJsonObject().get("state");
+    String stringState = state.toString().replaceAll("^\"|\"$", "");
 
-
-    //Issue requiredIssue = issuesSet.
-    return true;
-/*
-    System.out.println("Status " + issue.getStatus().getName());
-    if (issue.getStatus().getName().equals("Closed")) {
+    if (stringState.equals("3")) {
       return false;
     } return true;
-*/
   }
 
 
