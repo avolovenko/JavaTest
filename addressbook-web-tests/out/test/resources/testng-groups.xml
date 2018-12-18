@@ -6,7 +6,6 @@
             <class name="ua.av.addressbook.tests.GroupCreationTest" />
             <class name="ua.av.addressbook.tests.GroupModificationTest" />
             <class name="ua.av.addressbook.tests.GroupDeletionTest" />
-
         </classes>
     </test>
 </suite>
