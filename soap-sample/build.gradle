@@ -28,3 +28,6 @@ wsdl2java {
     ]
 }
 
+test {
+	useTestNG()
+}

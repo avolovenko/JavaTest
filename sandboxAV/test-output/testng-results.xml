@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="1" total="12" passed="11">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default Suite" duration-ms="6829" started-at="2018-12-18T22:18:34Z" finished-at="2018-12-18T22:18:41Z">
+    <groups>
+    </groups>
+    <test name="sandboxAV" duration-ms="6829" started-at="2018-12-18T22:18:34Z" finished-at="2018-12-18T22:18:41Z">
+      <class name="ua.av.sanndboxav.PrimeTests">
+        <test-method status="PASS" signature="testPrime()[pri:0, instance:ua.av.sanndboxav.PrimeTests@7006c658]" name="testPrime" duration-ms="6728" started-at="2018-12-18T22:18:34Z" finished-at="2018-12-18T22:18:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPrime -->
+        <test-method status="PASS" signature="testNonPrime()[pri:0, instance:ua.av.sanndboxav.PrimeTests@7006c658]" name="testNonPrime" duration-ms="0" started-at="2018-12-18T22:18:34Z" finished-at="2018-12-18T22:18:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNonPrime -->
+        <test-method status="PASS" signature="testPrimeFast()[pri:0, instance:ua.av.sanndboxav.PrimeTests@7006c658]" name="testPrimeFast" duration-ms="0" started-at="2018-12-18T22:18:41Z" finished-at="2018-12-18T22:18:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPrimeFast -->
+      </class> <!-- ua.av.sanndboxav.PrimeTests -->
+      <class name="ua.av.sanndboxav.DistanceTest">
+        <test-method status="PASS" signature="testDistanceValue()[pri:0, instance:ua.av.sanndboxav.DistanceTest@7bb11784]" name="testDistanceValue" duration-ms="42" started-at="2018-12-18T22:18:34Z" finished-at="2018-12-18T22:18:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDistanceValue -->
+        <test-method status="PASS" signature="testDistanceZero()[pri:0, instance:ua.av.sanndboxav.DistanceTest@7bb11784]" name="testDistanceZero" duration-ms="0" started-at="2018-12-18T22:18:34Z" finished-at="2018-12-18T22:18:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDistanceZero -->
+      </class> <!-- ua.av.sanndboxav.DistanceTest -->
+      <class name="ua.av.sanndboxav.EquationTest">
+        <test-method status="PASS" signature="test0()[pri:0, instance:ua.av.sanndboxav.EquationTest@33a10788]" name="test0" duration-ms="8" started-at="2018-12-18T22:18:34Z" finished-at="2018-12-18T22:18:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test0 -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:ua.av.sanndboxav.EquationTest@33a10788]" name="test1" duration-ms="0" started-at="2018-12-18T22:18:34Z" finished-at="2018-12-18T22:18:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="testConstant()[pri:0, instance:ua.av.sanndboxav.EquationTest@33a10788]" name="testConstant" duration-ms="0" started-at="2018-12-18T22:18:34Z" finished-at="2018-12-18T22:18:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testConstant -->
+        <test-method status="PASS" signature="testLiner()[pri:0, instance:ua.av.sanndboxav.EquationTest@33a10788]" name="testLiner" duration-ms="0" started-at="2018-12-18T22:18:34Z" finished-at="2018-12-18T22:18:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLiner -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:ua.av.sanndboxav.EquationTest@33a10788]" name="test2" duration-ms="0" started-at="2018-12-18T22:18:34Z" finished-at="2018-12-18T22:18:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="testZero()[pri:0, instance:ua.av.sanndboxav.EquationTest@33a10788]" name="testZero" duration-ms="0" started-at="2018-12-18T22:18:34Z" finished-at="2018-12-18T22:18:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testZero -->
+      </class> <!-- ua.av.sanndboxav.EquationTest -->
+    </test> <!-- sandboxAV -->
+  </suite> <!-- Default Suite -->
+</testng-results>
